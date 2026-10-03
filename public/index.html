@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="打磨一段提示词，留住每一次改进。用变量重复使用，用真实输出验证想法。"
+    />
+    <title>Prompt Loom · AI 小工具</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand"><span class="logo">L</span>Prompt Loom</div>
+        <div class="side-intro">
+          <div class="eyebrow">PERSONAL AI WORKSPACE</div>
+          <div class="nav-item">提示词工作室</div>
+        </div>
+        <div class="side-note">
+          把一个想法，变成可以使用的结果。<br />轻量、专注，按你的节奏。
+        </div>
+        <div class="side-bottom">
+          <div class="eyebrow">CONNECTION</div>
+          <label
+            ><span class="sr-only" hidden>运行模式</span
+            ><select id="mode" aria-label="运行模式"></select
+          ></label>
+        </div>
+        <div class="side-footer">
+          INDEPENDENT EDITION / 02<br />Built for a little more clarity.
+        </div>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <span class="crumb">我的工作台 &nbsp; / &nbsp; 提示词工作室</span
+          ><span class="top-meta"
+            ><i class="dot"></i><span id="connection">正在连接…</span></span
+          >
+        </header>
+        <section class="hero">
+          <div class="eyebrow">GIVE YOUR IDEAS BETTER INSTRUCTIONS</div>
+          <h1>好结果，从好问题开始。</h1>
+          <p class="description">
+            打磨一段提示词，留住每一次改进。用变量重复使用，用真实输出验证想法。
+          </p>
+        </section>
+        <section class="workspace">
+          <form id="optimize-form" class="panel">
+            <div class="panel-head">
+              <h2>01 / 原始提示词</h2>
+              <button type="button" id="sample" class="small">载入示例</button>
+            </div>
+            <label
+              >提示词模板<textarea
+                id="prompt"
+                rows="9"
+                required
+                maxlength="16000"
+                placeholder="为 {{产品}} 写一段面向 {{受众}} 的介绍…"
+              ></textarea>
+            </label>
+            <div class="grid2">
+              <label
+                >优化目标<input
+                  id="goal"
+                  maxlength="1000"
+                  placeholder="例如：更具体，便于直接使用" /></label
+              ><label
+                >优化方向<select id="tone">
+                  <option value="precise">清晰精确</option>
+                  <option value="creative">开放创意</option>
+                  <option value="concise">精炼简洁</option>
+                </select></label
+              >
+            </div>
+            <div class="toolbar">
+              <button class="primary" id="optimize">优化提示词 ↗</button
+              ><button type="button" id="save-version">保存版本</button
+              ><button type="button" id="export-prompt" class="small">
+                导出模板
+              </button>
+            </div>
+          </form>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>02 / 改进版本</h2>
+              <span class="number">REFINE</span>
+            </div>
+            <div id="optimized-empty" class="empty">
+              <div class="symbol">⌘</div>
+              <h3>为指令加一点结构</h3>
+              <p>优化后会展示完整提示词与改动说明，变量会自动保留。</p>
+            </div>
+            <div id="optimized-area" hidden>
+              <div id="meta" class="meta"></div>
+              <textarea
+                id="optimized"
+                rows="10"
+                aria-label="优化结果"
+              ></textarea>
+              <div id="changes" class="hint"></div>
+              <div class="toolbar">
+                <button id="use" class="primary">用这个版本试运行</button
+                ><button id="copy" class="small">复制</button>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>03 / 模板试运行</h2>
+              <span class="number">PLAYGROUND</span>
+            </div>
+            <div id="variables" class="stack"></div>
+            <p class="hint">使用左上方当前模板。真实模式会调用所配置的模型。</p>
+            <button id="test" class="primary">运行当前提示词</button>
+            <div class="divider"></div>
+            <div id="test-result" class="result muted">
+              试运行结果会出现在这里。
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>版本库</h2>
+              <button id="export" class="small">导出全部</button>
+            </div>
+            <label
+              >版本名称<input
+                id="version-name"
+                maxlength="80"
+                placeholder="产品介绍 · 第 1 版"
+            /></label>
+            <div id="versions" class="stack"></div>
+          </section>
+        </section>
+        <footer class="footer">
+          <span>Prompt Loom · 独立轻量实现</span
+          ><span
+            >灵感来自
+            <a
+              href="https://github.com/linshenkx/prompt-optimizer"
+              target="_blank"
+              rel="noopener noreferrer"
+              >linshenkx/prompt-optimizer</a
+            >
+            &nbsp; / &nbsp; 02 OF 10</span
+          >
+        </footer>
+      </main>
+    </div>
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

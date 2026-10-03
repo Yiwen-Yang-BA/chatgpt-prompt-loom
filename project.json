@@ -1,0 +1,31 @@
+{
+  "id": "chatgpt-prompt-loom",
+  "title": "Prompt Loom",
+  "number": 2,
+  "port": 3102,
+  "symbol": "L",
+  "nav": "提示词工作室",
+  "eyebrow": "GIVE YOUR IDEAS BETTER INSTRUCTIONS",
+  "headline": "好结果，从好问题开始。",
+  "description": "打磨一段提示词，留住每一次改进。用变量重复使用，用真实输出验证想法。",
+  "features": [
+    "原始提示词与优化版本双栏对照",
+    "支持 {{变量}} 模板、动态填写和试运行",
+    "精确、创意、简洁三种优化方向",
+    "版本库、本地保存与 JSON/Markdown 导出"
+  ],
+  "steps": [
+    "载入示例或输入提示词，可用 {{主题}} 定义变量。",
+    "描述优化目标，选择方向并优化。",
+    "选用优化结果后填写模板变量，试运行检查实际输出。",
+    "为满意的版本命名并保存，随时恢复或导出。"
+  ],
+  "source": {
+    "name": "linshenkx/prompt-optimizer",
+    "url": "https://github.com/linshenkx/prompt-optimizer",
+    "stars": 36207,
+    "pushed": "2026-09-24",
+    "license": "AGPL-3.0-only"
+  },
+  "scope": "复刻 Prompt Optimizer 的提示词打磨、变量与试运行核心流程。没有多用户空间、图像提示词、自动多轮优化或云端同步。"
+}
